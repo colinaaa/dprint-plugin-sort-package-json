@@ -1,0 +1,22 @@
+{
+  "name": "dprint-plugin-sort-package-json",
+  "version": "0.1.0",
+  "description": "Wasm module for dprint-plugin-sort-package-json.",
+  "license": "MIT",
+  "main": "./index.js",
+  "types": "./index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/colinaaa/dprint-plugin-sort-package-json.git"
+  },
+  "bugs": {
+    "url": "https://github.com/colinaaa/dprint-plugin-sort-package-json/issues"
+  },
+  "homepage": "https://github.com/colinaaa/dprint-plugin-sort-package-json#readme",
+  "scripts": {
+    "test": "node index.test.js"
+  },
+  "devDependencies": {
+    "@dprint/formatter": "~0.4.0"
+  }
+}

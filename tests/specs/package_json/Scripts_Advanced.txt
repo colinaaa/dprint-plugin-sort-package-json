@@ -1,0 +1,72 @@
+-- /package.json --
+== pre/base/post scripts sort lexically within scripts ==
+{
+  "scripts": {
+    "postbuild": "node postbuild.js",
+    "build": "node build.js",
+    "prebuild": "node prebuild.js",
+    "lint": "node lint.js"
+  },
+  "name": "pkg"
+}
+
+[expect]
+{
+  "name": "pkg",
+  "scripts": {
+    "build": "node build.js",
+    "lint": "node lint.js",
+    "postbuild": "node postbuild.js",
+    "prebuild": "node prebuild.js"
+  }
+}
+
+== colon script families sort lexically with deeper variants following ==
+{
+  "scripts": {
+    "lint": "node lint.js",
+    "test:production:cjs:b": "vitest production cjs b",
+    "test:production:cjs:a": "vitest production cjs a",
+    "test:b": "vitest b",
+    "test": "vitest",
+    "test:a": "vitest a",
+    "build": "node build.js"
+  },
+  "name": "pkg"
+}
+
+[expect]
+{
+  "name": "pkg",
+  "scripts": {
+    "build": "node build.js",
+    "lint": "node lint.js",
+    "test": "vitest",
+    "test:a": "vitest a",
+    "test:b": "vitest b",
+    "test:production:cjs:a": "vitest production cjs a",
+    "test:production:cjs:b": "vitest production cjs b"
+  }
+}
+
+== names beginning with colon or containing double colons are sorted ==
+{
+  "scripts": {
+    "build::prod": "node build-prod.js",
+    ":start": "node start.js",
+    "build": "node build.js",
+    "build:dev": "node build-dev.js"
+  },
+  "name": "pkg"
+}
+
+[expect]
+{
+  "name": "pkg",
+  "scripts": {
+    ":start": "node start.js",
+    "build": "node build.js",
+    "build::prod": "node build-prod.js",
+    "build:dev": "node build-dev.js"
+  }
+}

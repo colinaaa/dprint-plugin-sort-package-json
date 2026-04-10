@@ -1,0 +1,65 @@
+== workspaces object preserves nested packages, catalog, and sibling ordering ==
+{
+  "version": "1.0.0",
+  "name": "pkg",
+  "workspaces": {
+    "packages": [
+      "packages/z",
+      "packages/z",
+      "packages/a",
+      "packages/m"
+    ],
+    "sibling": {
+      "zKey": true,
+      "aKey": false,
+      "zArray": [
+        "z",
+        "a",
+        "z"
+      ]
+    },
+    "catalog": {
+      "zod": "^3.0.0",
+      "@types/node": "^20.0.0",
+      "lodash": "^4.17.21"
+    }
+  }
+}
+
+[expect]
+{
+  "name": "pkg",
+  "version": "1.0.0",
+  "workspaces": {
+    "packages": [
+      "packages/z",
+      "packages/z",
+      "packages/a",
+      "packages/m"
+    ],
+    "sibling": {
+      "zKey": true,
+      "aKey": false,
+      "zArray": [
+        "z",
+        "a",
+        "z"
+      ]
+    },
+    "catalog": {
+      "zod": "^3.0.0",
+      "@types/node": "^20.0.0",
+      "lodash": "^4.17.21"
+    }
+  }
+}
+
+== non-object workspaces value remains unchanged in dedicated workspaces coverage ==
+{
+  "workspaces": true
+}
+
+[expect]
+{
+  "workspaces": true
+}

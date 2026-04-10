@@ -1,0 +1,33 @@
+[package]
+name = "dprint-plugin-sort-package-json"
+version = "0.1.0"
+edition = "2024"
+license = "MIT"
+description = "Sorts package.json files for dprint."
+homepage = "https://github.com/colinaaa/dprint-plugin-sort-package-json"
+repository = "https://github.com/colinaaa/dprint-plugin-sort-package-json"
+
+[lib]
+crate-type = ["lib", "cdylib"]
+
+[profile.release]
+opt-level = 3
+debug = false
+lto = true
+debug-assertions = false
+overflow-checks = false
+panic = "abort"
+
+[features]
+wasm = ["serde_json", "dprint-core/wasm"]
+
+[dependencies]
+anyhow = "1.0.64"
+dprint-core = { version = "0.67.4", features = ["wasm"] }
+serde = { version = "1.0.144", features = ["derive"] }
+serde_json = { version = "1.0", features = ["preserve_order"], optional = true }
+sort-package-json = "0.0.12"
+
+[dev-dependencies]
+dprint-development = "0.10.2"
+serde_json = { version = "1.0" }

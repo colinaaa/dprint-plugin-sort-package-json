@@ -1,0 +1,87 @@
+== mixed-case dependencies sort while metadata maps keep insertion order ==
+{
+  "dependenciesMeta": {
+    "zod": {
+      "injected": true
+    },
+    "@types/node": {
+      "injected": true
+    },
+    "React": {
+      "injected": true
+    }
+  },
+  "dependencies": {
+    "zod": "^3.0.0",
+    "@types/node": "^20.0.0",
+    "React": "^18.0.0"
+  },
+  "peerDependenciesMeta": {
+    "zod": {
+      "optional": true
+    },
+    "@types/node": {
+      "optional": true
+    },
+    "React": {
+      "optional": true
+    }
+  }
+}
+
+[expect]
+{
+  "dependencies": {
+    "@types/node": "^20.0.0",
+    "React": "^18.0.0",
+    "zod": "^3.0.0"
+  },
+  "dependenciesMeta": {
+    "zod": {
+      "injected": true
+    },
+    "@types/node": {
+      "injected": true
+    },
+    "React": {
+      "injected": true
+    }
+  },
+  "peerDependenciesMeta": {
+    "zod": {
+      "optional": true
+    },
+    "@types/node": {
+      "optional": true
+    },
+    "React": {
+      "optional": true
+    }
+  }
+}
+
+== pnpm moves near package manager fields but override keys stay unsorted ==
+{
+  "pnpm": {
+    "overrides": {
+      "zod": "^3.0.0",
+      "@types/node": "^20.0.0",
+      "React": "^18.0.0"
+    }
+  },
+  "packageManager": "pnpm@9.0.0",
+  "name": "pkg"
+}
+
+[expect]
+{
+  "name": "pkg",
+  "packageManager": "pnpm@9.0.0",
+  "pnpm": {
+    "overrides": {
+      "zod": "^3.0.0",
+      "@types/node": "^20.0.0",
+      "React": "^18.0.0"
+    }
+  }
+}

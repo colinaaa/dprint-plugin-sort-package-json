@@ -1,0 +1,17 @@
+{
+  "$id": "https://plugins.dprint.dev/colinaaa/dprint-plugin-sort-package-json/0.0.0/schema.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "locked": {
+      "type": "boolean",
+      "description": "Whether the configuration is not allowed to be overridden or extended."
+    },
+    "sortScripts": {
+      "type": "boolean",
+      "default": true,
+      "description": "Sort keys inside the scripts object."
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,39 @@
+== collapses extra whitespace into standard pretty formatting ==
+{  "scripts": { "test": "vitest", "build": "tsc" },
+"name": "pkg",    "version": "1.0.0" }
+
+[expect]
+{
+  "name": "pkg",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "tsc",
+    "test": "vitest"
+  }
+}
+
+== expands compact arrays into standard pretty formatting ==
+{
+  "keywords": ["zebra", "alpha", "middle"]
+}
+
+[expect]
+{
+  "keywords": [
+    "alpha",
+    "middle",
+    "zebra"
+  ]
+}
+
+== keeps already pretty lf formatting while sorting ==
+{
+  "version": "1.0.0",
+  "name": "pkg"
+}
+
+[expect]
+{
+  "name": "pkg",
+  "version": "1.0.0"
+}

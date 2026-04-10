@@ -1,0 +1,37 @@
+== imports exports preserved with custom and private keys ==
+{
+  "customZ": true,
+  "private": true,
+  "imports": {
+    "#z": "./src/z.js",
+    "#a": "./src/a.js"
+  },
+  "exports": {
+    "./feature": "./dist/feature.js",
+    ".": "./dist/index.js"
+  },
+  "_moduleAliases": {
+    "@root": ".",
+    "@utils": "./src/utils"
+  },
+  "customA": false
+}
+
+[expect]
+{
+  "private": true,
+  "imports": {
+    "#z": "./src/z.js",
+    "#a": "./src/a.js"
+  },
+  "exports": {
+    "./feature": "./dist/feature.js",
+    ".": "./dist/index.js"
+  },
+  "customA": false,
+  "customZ": true,
+  "_moduleAliases": {
+    "@root": ".",
+    "@utils": "./src/utils"
+  }
+}

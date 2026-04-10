@@ -1,0 +1,27 @@
+-- /package.json --
+~~ sortScripts: false ~~
+== sortScripts false preserves complex script ordering ==
+{
+  "scripts": {
+    "posttest": "node posttest.js",
+    "test:b": "vitest b",
+    ":start": "node start.js",
+    "test": "vitest",
+    "pretest": "node pretest.js",
+    "build::prod": "node build-prod.js"
+  },
+  "name": "pkg"
+}
+
+[expect]
+{
+  "name": "pkg",
+  "scripts": {
+    "posttest": "node posttest.js",
+    "test:b": "vitest b",
+    ":start": "node start.js",
+    "test": "vitest",
+    "pretest": "node pretest.js",
+    "build::prod": "node build-prod.js"
+  }
+}

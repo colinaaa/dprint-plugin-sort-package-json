@@ -1,0 +1,81 @@
+== top-level exports object preserves original key order ==
+{
+  "version": "1.0.0",
+  "exports": {
+    "types": "./dist/index.d.ts",
+    "default": "./dist/index.js",
+    "./feature": "./dist/feature.js",
+    ".": "./dist/index.mjs",
+    "import": "./dist/index.js"
+  },
+  "name": "pkg"
+}
+
+[expect]
+{
+  "name": "pkg",
+  "version": "1.0.0",
+  "exports": {
+    "types": "./dist/index.d.ts",
+    "default": "./dist/index.js",
+    "./feature": "./dist/feature.js",
+    ".": "./dist/index.mjs",
+    "import": "./dist/index.js"
+  }
+}
+
+== nested exports objects also keep their original key order ==
+{
+  "exports": {
+    "./feature": {
+      "require": "./dist/feature.cjs",
+      "types": "./dist/feature.d.ts",
+      "default": "./dist/feature.js"
+    },
+    ".": {
+      "require": "./dist/index.cjs",
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  }
+}
+
+[expect]
+{
+  "exports": {
+    "./feature": {
+      "require": "./dist/feature.cjs",
+      "types": "./dist/feature.d.ts",
+      "default": "./dist/feature.js"
+    },
+    ".": {
+      "require": "./dist/index.cjs",
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  }
+}
+
+== exports leaves types condition variants in their original order ==
+{
+  "exports": {
+    ".": {
+      "types@<=1": "./dist/legacy.d.ts",
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  }
+}
+
+[expect]
+{
+  "exports": {
+    ".": {
+      "types@<=1": "./dist/legacy.d.ts",
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  }
+}

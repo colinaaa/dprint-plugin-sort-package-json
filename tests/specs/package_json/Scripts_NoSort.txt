@@ -1,0 +1,19 @@
+-- /package.json --
+~~ sortScripts: false ~~
+== sortScripts false preserves scripts order ==
+{
+  "scripts": {
+    "test": "vitest",
+    "build": "tsc"
+  },
+  "name": "pkg"
+}
+
+[expect]
+{
+  "name": "pkg",
+  "scripts": {
+    "test": "vitest",
+    "build": "tsc"
+  }
+}

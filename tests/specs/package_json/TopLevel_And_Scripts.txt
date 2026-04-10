@@ -1,0 +1,22 @@
+-- /package.json --
+== top-level order and scripts sorted by default ==
+{
+  "version": "1.0.0",
+  "name": "pkg",
+  "scripts": {
+    "test": "vitest",
+    "build": "tsc"
+  },
+  "description": "desc"
+}
+
+[expect]
+{
+  "name": "pkg",
+  "version": "1.0.0",
+  "description": "desc",
+  "scripts": {
+    "build": "tsc",
+    "test": "vitest"
+  }
+}
