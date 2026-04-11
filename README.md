@@ -29,3 +29,11 @@ The plugin formats files named `package.json`.
 
 - `locked`: Standard dprint plugin-config flag that prevents this config block from being overridden or extended.
 - `sortScripts`: Sorts keys inside the `scripts` object. Default: `true`.
+
+## Credits
+
+Thanks to the `sort-package-json` project, the Rust `sort_package_json` crate, and `dprint` for the ideas and foundations that made this plugin possible.
+
+- [`sort-package-json`](https://github.com/keithamus/sort-package-json)
+- [`sort_package_json`](https://github.com/oxc-project/sort-package-json)
+- [`dprint`](https://github.com/dprint/dprint)
