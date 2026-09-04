@@ -1,11 +1,11 @@
 [package]
 name = "dprint-plugin-sort-package-json"
-version = "0.2.0"
+version = "0.2.1"
 edition = "2024"
-license = "MIT"
-description = "Sorts package.json files for dprint."
 homepage = "https://github.com/colinaaa/dprint-plugin-sort-package-json"
+license = "MIT"
 repository = "https://github.com/colinaaa/dprint-plugin-sort-package-json"
+description = "Sorts package.json files for dprint."
 
 [lib]
 crate-type = ["lib", "cdylib"]
