@@ -4,12 +4,12 @@ Sorts `package.json` files with dprint.
 
 ## Usage
 
-Add the plugin to your `dprint.json`:
+Add the npm package to your `dprint.json`:
 
 ```json
 {
   "plugins": [
-    "https://plugins.dprint.dev/colinaaa/dprint-plugin-sort-package-json/latest/plugin.wasm"
+    "npm:dprint-plugin-sort-package-json@0.1.0"
   ]
 }
 ```
