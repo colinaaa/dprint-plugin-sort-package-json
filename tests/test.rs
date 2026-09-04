@@ -29,7 +29,7 @@ fn test_specs() {
         let config_result = resolve_config(spec_config, &global_config);
         ensure_no_diagnostics(&config_result.diagnostics);
 
-        format_text(&path, &file_text, &config_result.config)
+        Ok(format_text(path, file_text, &config_result.config)?)
       })
     },
     Arc::new(move |_, _, _| String::new()),

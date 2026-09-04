@@ -24,10 +24,9 @@ pub fn format_text_with_range(
 
   let sorted_text = sort_package_json::sort_package_json_with_options(
     file_text,
-    &SortOptions {
-      pretty: true,
-      sort_scripts: config.sort_scripts,
-    },
+    &SortOptions::new()
+      .with_pretty(true)
+      .with_sort_scripts(config.sort_scripts),
   )
   .context("Failed sorting package.json with sort-package-json")?;
 
