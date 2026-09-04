@@ -3,6 +3,7 @@ use dprint_core::configuration::GlobalConfiguration;
 use dprint_core::generate_plugin_code;
 use dprint_core::plugins::CheckConfigUpdatesMessage;
 use dprint_core::plugins::ConfigChange;
+use dprint_core::plugins::FormatError;
 use dprint_core::plugins::FormatResult;
 use dprint_core::plugins::PluginInfo;
 use dprint_core::plugins::PluginResolveConfigurationResult;
@@ -33,7 +34,7 @@ impl SyncPluginHandler<Configuration> for SortPackageJsonPluginHandler {
     }
   }
 
-  fn check_config_updates(&self, _message: CheckConfigUpdatesMessage) -> Result<Vec<ConfigChange>, anyhow::Error> {
+  fn check_config_updates(&self, _message: CheckConfigUpdatesMessage) -> Result<Vec<ConfigChange>, FormatError> {
     Ok(Vec::new())
   }
 
@@ -53,6 +54,7 @@ impl SyncPluginHandler<Configuration> for SortPackageJsonPluginHandler {
     let file_text = String::from_utf8(request.file_bytes)?;
     format_text_with_range(request.file_path, &file_text, request.range, request.config)
       .map(|maybe_text| maybe_text.map(|text| text.into_bytes()))
+      .map_err(FormatError::new)
   }
 }
 
