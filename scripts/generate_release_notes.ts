@@ -12,21 +12,35 @@ ${changelog}
 
 [Install](https://dprint.dev/install/) and [setup](https://dprint.dev/setup/) dprint.
 
-Then in your project's dprint configuration file:
+### npm (recommended)
 
-1. Specify the plugin url in the \`"plugins"\` array.
-2. Add a \`"sortPackageJson"\` configuration property if desired.
-   \`\`\`jsonc
-   {
-     // ...etc...
-     "sortPackageJson": {
-       // sortPackageJson config goes here
-     },
-     "plugins": [
-       "https://plugins.dprint.dev/colinaaa/dprint-plugin-sort-package-json/${version}/plugin.wasm"
-     ]
-   }
-   \`\`\`
+Add the npm package to your project's dprint configuration file:
+
+\`\`\`jsonc
+{
+  "sortPackageJson": {
+    // sortPackageJson config goes here
+  },
+  "plugins": [
+    "npm:dprint-plugin-sort-package-json@${version}"
+  ]
+}
+\`\`\`
+
+### GitHub
+
+Alternatively, use the plugin from GitHub Releases:
+
+\`\`\`jsonc
+{
+  "sortPackageJson": {
+    // sortPackageJson config goes here
+  },
+  "plugins": [
+    "https://github.com/colinaaa/dprint-plugin-sort-package-json/releases/download/${version}/plugin.wasm"
+  ]
+}
+\`\`\`
 
 ## JS Formatting API
 
