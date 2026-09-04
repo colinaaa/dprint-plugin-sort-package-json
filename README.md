@@ -9,7 +9,7 @@ Add the npm package to your `dprint.json`:
 ```json
 {
   "plugins": [
-    "npm:dprint-plugin-sort-package-json@0.2.0"
+    "npm:dprint-plugin-sort-package-json@0.2.1"
   ]
 }
 ```
